@@ -1,7 +1,7 @@
 module Mysql2
   class Client
-    module GeneralLogs
-      VERSION = "0.2.0"
+    module GeneralLog
+      VERSION = "0.2.1"
     end
   end
 end

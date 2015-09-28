@@ -3,8 +3,8 @@ require 'benchmark'
 
 module Mysql2
   class Client
-    module GeneralLogs
-      require "mysql2/client/general_logs/version"
+    module GeneralLog
+      require "mysql2/client/general_log/version"
 
       class Log < Struct.new(
         :sql,
@@ -12,22 +12,24 @@ module Mysql2
         :time,
       ); end
 
-      attr_accessor :general_logs
+      attr_accessor :general_log
 
       def initialize(opts = {})
-        @general_logs = []
+        @general_log = []
         super
       end
 
       # dependent on Mysql2::Client#query
       def query(sql, options={})
+        ret = nil
         time = Benchmark.realtime do
-          super
+          ret = super
         end
-        @general_logs << Log.new(sql, caller_locations, time)
+        @general_log << Log.new(sql, caller_locations, time)
+        ret
       end
     end
 
-    prepend GeneralLogs
+    prepend GeneralLog
   end
 end

@@ -1,18 +1,18 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-File.read('lib/mysql2/client/general_logs/version.rb') =~ /.*VERSION\s*=\s*['"](.*?)['"]\s.*/
+File.read('lib/mysql2/client/general_log/version.rb') =~ /.*VERSION\s*=\s*['"](.*?)['"]\s.*/
 version = $1
 
 Gem::Specification.new do |spec|
-  spec.name          = "mysql2-client-general_logs"
+  spec.name          = "mysql2-client-general_log"
   spec.version       = version
   spec.authors       = ["ksss"]
   spec.email         = ["co000ri@gmail.com"]
 
   spec.summary       = %q{Simple stocker general log for mysql2 gem.}
   spec.description   = %q{Simple stocker general log for mysql2 gem.}
-  spec.homepage      = "https://github.com/ksss/mysql2-client-general_logs"
+  spec.homepage      = "https://github.com/ksss/mysql2-client-general_log"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
