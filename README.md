@@ -37,9 +37,9 @@ get '/' do
 end
 
 after do
-  puts db.query_logs.map(&:sql)
-  puts "path:#{request.path}\tsql:#{db.query_logs.length}"
-  db.query_logs.clear
+  puts db.general_logs.map(&:sql)
+  puts "path:#{request.path}\tsql:#{db.general_logs.length}"
+  db.general_logs.clear
 end
 ```
 
