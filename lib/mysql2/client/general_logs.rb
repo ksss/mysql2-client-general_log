@@ -1,4 +1,5 @@
 require "mysql2"
+require 'benchmark'
 
 module Mysql2
   class Client
@@ -8,6 +9,7 @@ module Mysql2
       class Log < Struct.new(
         :sql,
         :backtrace,
+        :time,
       ); end
 
       attr_accessor :general_logs
@@ -19,8 +21,10 @@ module Mysql2
 
       # dependent on Mysql2::Client#query
       def query(sql, options={})
-        @general_logs << Log.new(sql, caller_locations)
-        super
+        time = Benchmark.realtime do
+          super
+        end
+        @general_logs << Log.new(sql, caller_locations, time)
       end
     end
 

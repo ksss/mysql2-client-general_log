@@ -59,8 +59,8 @@ SQL
   end
 
   def test_log_class(t)
-    if Mysql2::Client::GeneralLogs::Log.members != [:sql, :backtrace]
-      t.error("expect Mysql2::Client::GeneralLogs::Log.members is [:sql, :backtrace] got #{Mysql2::Client::GeneralLogs::Log.members}")
+    if Mysql2::Client::GeneralLogs::Log.members != [:sql, :backtrace, :time]
+      t.error("expect Mysql2::Client::GeneralLogs::Log.members is [:sql, :backtrace, :time] got #{Mysql2::Client::GeneralLogs::Log.members}")
     end
   end
 
