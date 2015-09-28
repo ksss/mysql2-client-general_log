@@ -1,6 +1,8 @@
 Mysql2::Client::GeneralLogs
 ===
 
+[![Build Status](https://travis-ci.org/ksss/mysql2-client-general_logs.svg?branch=v0.1.0)](https://travis-ci.org/ksss/mysql2-client-general_logs)
+
 A monkey patch for Mysql2.
 Stock all general logs.
 
