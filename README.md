@@ -14,11 +14,13 @@ require "mysql2/client/general_logs"
 client = Mysql2::Client.new(config)
 client.query("SELECT * FROM users LIMIT 1")
 
-p client.general_logs #=> [
-  #<struct Mysql2::Client::GeneralLogs::Log
-    sql="SELECT * FROM users LIMIT 1",
-    backtrace=["script.rb:6:in `<main>'"]>
-]
+p client.general_logs #=>
+# [
+#   #<struct Mysql2::Client::GeneralLogs::Log
+#     sql="SELECT * FROM users LIMIT 1",
+#     backtrace=["script.rb:6:in `<main>'"],
+#     time=0.0909838349907659>
+# ]
 ```
 
 ## Examples
